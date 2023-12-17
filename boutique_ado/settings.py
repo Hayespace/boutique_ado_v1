@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-%&hb8m2g2pfn)80tj#(m(v^$06i1fq*jd(1-2+&z!2+^u6^wc8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-hayespace-boutique-ado-v-9autznksn8.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['8000-hayespace-boutique-ado-v-bmorxkx1a9.us2.codeanyapp.com']
 
 
 # Application definition
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
-
+    'django_countries.fields',
     'crispy_forms',
 
 ]
