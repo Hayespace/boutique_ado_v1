@@ -184,3 +184,4 @@ STRIPE_PUBLIC_KEY = os.getenv(
 STRIPE_SECRET_KEY = os.getenv(
     'STRIPE_SECRET_KEY', 'sk_test_51OHmCtEhtAa8r3PJA89wA6arUlMZKqKTivycgNtbKqYcYnfRka8blBV5fMJHZv3nB99oC1PzQ4KGsLVeUdq7MmNp00ThyKszTI')
 STRIPE_WH_SECRET = os.getenv('STRIPE_SECRET_KEY', '')
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
