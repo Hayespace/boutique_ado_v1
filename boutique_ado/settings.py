@@ -1,4 +1,5 @@
 import os
+import dj_database_url
 
 """
 Django settings for boutique_ado project.
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-%&hb8m2g2pfn)80tj#(m(v^$06i1fq*jd(1-2+&z!2+^u6^wc8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-hayespace-boutique-ado-v-bmorxkx1a9.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['boutique-ado-bh', 'localhost']
 
 
 # Application definition
@@ -120,12 +121,19 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+
 
 
 # Password validation
@@ -185,3 +193,5 @@ STRIPE_SECRET_KEY = os.getenv(
     'STRIPE_SECRET_KEY', 'sk_test_51OHmCtEhtAa8r3PJA89wA6arUlMZKqKTivycgNtbKqYcYnfRka8blBV5fMJHZv3nB99oC1PzQ4KGsLVeUdq7MmNp00ThyKszTI')
 STRIPE_WH_SECRET = os.getenv('STRIPE_SECRET_KEY', '')
 DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
